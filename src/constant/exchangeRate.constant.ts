@@ -1,0 +1,4 @@
+export const OPERATIONS = {
+  MULTIPLICATION: 1,
+  DIVISION: 2,
+};
