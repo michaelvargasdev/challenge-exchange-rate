@@ -24,6 +24,10 @@ async function bootstrap() {
     .setTitle('Exchange Rate API')
     .setDescription('API to get currency exchange')
     .setVersion('1.0')
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'header' },
+      'Authorization',
+    )
     .addTag('Exchange Rate')
     .addTag('Auth')
     .build();

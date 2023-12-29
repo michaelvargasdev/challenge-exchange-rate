@@ -20,6 +20,7 @@ import {
   ApiUnauthorizedResponse,
   ApiNotFoundResponse,
   ApiTags,
+  ApiBearerAuth,
 } from '@nestjs/swagger';
 import { CreateExchangeRateBodyRequest } from './request/createExchangeRate.request';
 import { GetExchangeRateParamRequest } from './request/getExchangeRate.request';
@@ -38,6 +39,7 @@ import {
   UpdateExchangeRateParamRequest,
 } from './request/updateExchangeRate.request';
 
+@ApiBearerAuth('Authorization')
 @ApiTags('Exchange Rate')
 @Controller('exchangeRate')
 export class ExchangeRateController {

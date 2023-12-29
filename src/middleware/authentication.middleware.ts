@@ -15,7 +15,8 @@ export class AuthenticationMidldeware implements NestMiddleware {
       if (!headers.authorization) {
         return res.status(HttpStatus.UNAUTHORIZED).json(new Response401());
       } else {
-        const token = await this.jwtService.verifyAsync(headers.authorization);
+        const [, tokenHeader] = headers.authorization.split(' ');
+        const token = await this.jwtService.verifyAsync(tokenHeader);
         Logger.log(token);
         const payload = await this.jwtService.decode(token, { json: true });
         Logger.log(payload);
