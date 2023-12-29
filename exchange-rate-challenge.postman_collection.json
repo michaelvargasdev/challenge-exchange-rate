@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "1b3659d9-ca8c-4aaa-8d5b-d70236ef389d",
+		"name": "exchange-rate-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3573340"
+	},
+	"item": [
+		{
+			"name": "ExchangeRate",
+			"item": [
+				{
+					"name": "getExchangeRate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTHORIZATION}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/exchangeRate/100.00/PEN/USD",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exchangeRate",
+								"100.00",
+								"PEN",
+								"USD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createExchangeRate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"EUR-PEN\",\r\n    \"exchangeRate\": 4,\r\n    \"operation\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exchangeRate",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exchangeRate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExchangeRate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"exchangeRate\": 5,\r\n    \"operation\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/exchangeRate/EUR-PEN",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"exchangeRate",
+								"EUR-PEN"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"michael.vargas\",\r\n    \"password\": \"M1cha3L_V4rg4S\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/singIn",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"singIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
